@@ -5,13 +5,13 @@ console.log('- hund1;', dog1, '- hund2;', dog2);
 // let navn = cat.name;
 // let race = cat.breed;
 // let ownersEmail = cat.owner.contact
-// let { name, breed, owner: { contact } } = cat;
-// console.log('- Navn;', name, '- Race;', breed, '-Email;', contact);
+let { name, breed, owner: { contact } } = cat;
+console.log('- Navn;', name, '- Race;', breed, '-Email;', contact);
 // opgave 3)
-function destructureToy({ name, favoriteToys }) {
+function destructurToy({ name, favoriteToys }) {
     console.log(name, ...favoriteToys);
 }
-destructureToy(cat)
+destructurToy(cat)
 
 // --------------------------------------------------------
 
@@ -22,8 +22,9 @@ console.log(dogA, dogB, otherDogs);
 let dogsWithC = otherDogs.filter((dog) => dog.startsWith("C"))
 console.log(dogsWithC);
 // opgave 6)
-let { breed, ...otherInformation } = cat;
-console.log(otherInformation);
+let { breed: catBreed, ...otherInformation } = cat;
+console.log(catBreed, otherInformation);
+
 
 // --------------------------------------------------------
 // opgave 7) SPREAD OPERATOR
@@ -39,8 +40,10 @@ console.log(checkeredGiantInfo);
 // --------------------------------------------------------
 // opgave 9) OPTIONAL CHAINING
 westernMovies.forEach((movie) => {
-    console.log(movie.details?.director ?? '!has no director!');
+    console.log(movie.details?.director || '!has no director!');
 })
 // opgave 10)
 let user = 'Aya';
 user ? console.log('Velkommen', user) : console.log('You are not logged in');
+let user2 = 'Baya';
+user ? console.log('Velkommen', user2) : console.log('You are not logged in');
